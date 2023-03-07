@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const {
     getThoughts,
-    getSingleThought,
+  //  getSingleThought,
     createThought,
 } = require('../../controllers/thoughtController');
 
@@ -10,7 +10,7 @@ const {
 router.route('/').get(getThoughts).post(createThought);
 
 // /api/thoughts/:thoughtId
-router.route('/:thoughtId').get(getSingleThought);
+// router.route('/:thoughtId').get(getSingleThought);
 
 // /api/thoughts/:thoughtId/reactions
 
