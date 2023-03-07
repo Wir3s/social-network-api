@@ -13,7 +13,6 @@ app.use(express.json());
 
 // Finds all users
 app.get("/all-users", async (req, res) => {
-  // Using model in route to find
 
   try {
     const users = await User.find({});
@@ -24,6 +23,7 @@ app.get("/all-users", async (req, res) => {
   }
 });
 
+// Add a new user
 app.post("/new-user/:user", (req, res) => {
   const newUser = new User({ username: req.params.user });
   newUser.save();
