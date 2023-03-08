@@ -1,26 +1,26 @@
 // Define Mongoose
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 // Create a reaction subdocument and define the shape
-const reactionSchema = new mongoose.Schema({
-    // reactionId
-    reactionBody: { 
-        type: String,
-        required: true,
-        maxLength: 280,
-    },
-    username: {
-        type: String,
-        required: true
-    },
-    createdAt: {
-        type: Date,
-        // default
-    }
-})
+// const reactionSchema = new Schema({
+//   // reactionId
+//   reactionBody: {
+//     type: String,
+//     required: true,
+//     maxLength: 280,
+//   },
+//   username: {
+//     type: String,
+//     required: true,
+//   },
+//   createdAt: {
+//     type: Date,
+//     // default
+//   },
+// });
 
 // Create a new instance of Mongoose schema to define shape of each document
-const thoughtSchema = new mongoose.Schema({
+const thoughtSchema = new Schema({
   thoughtText: {
     type: String,
     required: true,
@@ -29,16 +29,16 @@ const thoughtSchema = new mongoose.Schema({
   },
   createdAt: {
     type: Date,
-    // default
+    default: Date.now(),
   },
   username: {
     type: String,
     required: true,
   },
-  reaction: reactionSchema,
+  // reaction: [reactionSchema],
 });
 
 // Compile a model based on schema
-const Thought = mongoose.model("Thought", thoughtSchema);
+const Thought = model("Thought", thoughtSchema);
 
 module.exports = Thought;
