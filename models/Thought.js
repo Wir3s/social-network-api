@@ -35,10 +35,12 @@ const thoughtSchema = new Schema({
     type: String,
     required: true,
   },
+
   // reaction: [reactionSchema],
-});
+},
+);
 
 // Compile a model based on schema
-const Thought = model("Thought", thoughtSchema);
+const Thought = model("thought", thoughtSchema);
 
 module.exports = Thought;
