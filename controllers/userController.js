@@ -27,7 +27,7 @@ module.exports = {
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
       .select("-__v")
-      // .populate("thoughts")
+      .populate("thoughts")
       .then((user) =>
         !user
           ? res.status(404).json({ message: "No such user exists" })
@@ -35,6 +35,7 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+
 
   // Find one user, with Async
   // getSingleUser(req, res) {
@@ -59,6 +60,22 @@ module.exports = {
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => res.status(500).json(err));
   },
+
+  // add a friend to a user
+  addFriend(req, res) {
+    User.findOneAndUpdate(
+          { _id: req.params.userId },
+          { $addToSet: { friends: { friendId: req.params.friendId } } },
+          { runValidators: true, new: true }
+        )
+        .then((user) =>
+        !user
+          ? res.status(404).json({ message: "No user with this id!" })
+          : res.json(user)
+      )
+      .catch((err) => res.status(500).json(err));
+      },
+
 
   // delete a user
   deleteUser(req, res) {
