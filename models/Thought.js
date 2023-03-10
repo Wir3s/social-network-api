@@ -1,27 +1,27 @@
 // Define Mongoose
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 
 // Create a reaction subdocument and define the shape
-// const reactionSchema = new Schema(
-//    {
-//    reactionId: {
-//         type: Schema.Types.ObjectId,
-//         default: () => new Types.ObjectId(),
-// },
-//   reactionBody: {
-//     type: String,
-//     required: true,
-//     maxLength: 280,
-//   },
-//   username: {
-//     type: String,
-//     required: true,
-//   },
-//   createdAt: {
-//     type: Date,
-//      default: Date.now,
-//   },
-// });
+const reactionSchema = new Schema(
+   {
+   reactionId: {
+        type: Schema.Types.ObjectId,
+        default: () => new Types.ObjectId(),
+},
+  reactionBody: {
+    type: String,
+    required: true,
+    maxLength: 280,
+  },
+  username: {
+    type: String,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+     default: Date.now,
+  },
+});
 
 // Create a new instance of Mongoose schema to define shape of each document
 const thoughtSchema = new Schema({
@@ -40,7 +40,7 @@ const thoughtSchema = new Schema({
     required: true,
   },
 
-  // reaction: [reactionSchema],
+  reactions: [reactionSchema],
 },
 );
 
