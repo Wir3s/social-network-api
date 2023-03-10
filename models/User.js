@@ -38,6 +38,10 @@ const userSchema = new Schema(
   }
 );
 
+userSchema.virtual("friendCount").get(function () {
+  return this.friends.length;
+});
+
 // Compile a model based on schema
 const User = model("user", userSchema);
 

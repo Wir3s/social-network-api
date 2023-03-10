@@ -2,8 +2,12 @@
 const { Schema, model } = require("mongoose");
 
 // Create a reaction subdocument and define the shape
-// const reactionSchema = new Schema({
-//   // reactionId
+// const reactionSchema = new Schema(
+//    {
+//    reactionId: {
+//         type: Schema.Types.ObjectId,
+//         default: () => new Types.ObjectId(),
+// },
 //   reactionBody: {
 //     type: String,
 //     required: true,
@@ -15,7 +19,7 @@ const { Schema, model } = require("mongoose");
 //   },
 //   createdAt: {
 //     type: Date,
-//     // default
+//      default: Date.now,
 //   },
 // });
 
