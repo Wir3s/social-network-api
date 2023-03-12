@@ -19,7 +19,7 @@
   It can be used by running 'node index.js' from the terminal.
 
   
-  [Link to video of application in action](https://drive.google.com/file/d/1YydpWUmZ50oY372K77EpYDLVFC-qHE-l/view)
+  [Link to video of application in action](https://drive.google.com/file/d/1nXjNQWmXqXJ8Z-LmfNuTt_D8XSpMbMAY/view))
 
 ## Contributing
   Any contribution suggestions are welcome.
