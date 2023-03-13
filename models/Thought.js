@@ -19,7 +19,8 @@ const reactionSchema = new Schema(
   },
   createdAt: {
     type: Date,
-     default: Date.now,
+    default: Date.now,
+  
   },
 });
 
@@ -42,7 +43,17 @@ const thoughtSchema = new Schema({
 
   reactions: [reactionSchema],
 },
+{
+  toJSON: {
+    virtuals: true,
+  },
+  id: false,
+}
 );
+
+thoughtSchema.virtual("reactionCount").get(function () {
+  return this.reactions.length;
+});
 
 // Compile a model based on schema
 const Thought = model("thought", thoughtSchema);
